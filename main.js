@@ -6,7 +6,7 @@ var svg1TL = gsap.timeline({scrollTrigger: {
     invalidateOnRefresh: true
 }})
 
-svg1TL.fromTo("#svg1 img", {y: "30%"}, {y: 0}, 0)
+svg1TL.fromTo("#svg1 video, #svg1 img", {y: "30%"}, {y: 0}, 0)
 svg1TL.fromTo("#svg1", {width: () => {if(window.innerWidth < 600)
     {return 70} else {return 200}}},
     {width: () => {
@@ -31,7 +31,7 @@ var svg2TL = gsap.timeline({scrollTrigger: {
     invalidateOnRefresh: true
 }})
 
-svg2TL.fromTo('#svg2 img', {y: "30%"}, {y: 0}, 0)
+svg2TL.fromTo("#svg2 video, #svg2 img", {y: "30%"}, {y: 0}, 0)
 svg2TL.fromTo('#svg2', {width: () => {
     if(window.innerWidth < 600)
     {return 70} else {
@@ -57,7 +57,7 @@ var svg3TL = gsap.timeline({scrollTrigger: {
     invalidateOnRefresh: true
 }})
 
-svg3TL.fromTo("#svg3 img", {y: "30%"}, {y: 0}, 0)
+svg3TL.fromTo("#svg3 video, #svg3 img", {y: "30%"}, {y: 0}, 0)
 svg3TL.fromTo("#svg3", {width: () => {
     if(window.innerWidth < 600) {return 70}
     else {return 200}}}, {width: () => {
@@ -79,7 +79,7 @@ var svg4TL = gsap.timeline({scrollTrigger: {
     end: () => window.innerHeight * 8 + " bottom"
 }})
 
-svg4TL.fromTo("#svg4 img", {y: "30%"}, {y: 0}, 0)
+svg4TL.fromTo("#svg4 video, #svg4 img", {y: "30%"}, {y: 0}, 0)
 svg4TL.fromTo("#svg4", {width: () => {
     if(window.innerWidth < 600) {return 70}
     else {return 200}}}, {width: () => {
@@ -105,3 +105,103 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('section.color, section.black').forEach(section => {
     observer.observe(section);
 });
+
+
+
+// HERO SECTION 
+const largeImage = document.getElementById('largeImage');
+const imagePaths = [
+    'images/denim_jacket.png',
+    'images/Drape\ Dress.png',
+    'images/knit_sweater.png',
+    'images/trousers.png',
+]
+const smallImage = document.querySelectorAll('.img_box');
+let current = 0;
+function updateLargeImage(){
+    largeImage.style.backgroundImage = `url('${imagePaths[current]}')`;
+    smallImage.forEach(img => img.classList.remove('pretty_border'));
+    smallImage.forEach(img => {
+        if(img.style.backgroundImage.includes(imagePaths[current])){
+            img.classList.add('pretty_border');
+        }
+    });
+    current = (current + 1) % imagePaths.length;
+}
+updateLargeImage();
+setInterval(updateLargeImage, 4000);
+
+// FEATURED COLLECTION 
+const mainImage = document.getElementById("mainImage");
+const sliceContainer = document.querySelector(".image_slice");
+const thumbs = document.querySelectorAll(".thumb");
+const infos = document.querySelectorAll('.info');
+
+const NUM_SLICES = 3;
+
+function createSlices(){
+    sliceContainer.innerHTML = "";
+    for (let i = 0; i < NUM_SLICES; i++){
+        const slice = document.createElement("div");
+        slice.classList.add("slice");
+        sliceContainer.appendChild(slice)
+    }
+}
+
+function animateSplitReveal(newSrc){
+    createSlices();
+    const slices = document.querySelectorAll('.slice')
+    gsap.to(slices, {
+        y: "0%",
+        duration: 0.5,
+        stagger: 0.1,
+        ease: "power2.in",
+        onComplete: () => {
+            mainImage.src = newSrc;
+            gsap.to(slices, {
+                y: "-100%",
+                duration: 0.6,
+                stagger: 0.1,
+                ease: "power2.out"
+            });
+        }
+    });
+}
+
+thumbs.forEach((thumb, index) => {
+    thumb.addEventListener("click", () => {
+        if(thumb.classList.contains("active")) return;
+        thumbs.forEach(t => t.classList.remove("active"));
+        thumb.classList.add('active');
+        animateSplitReveal(thumb.src);
+        
+        infos.forEach(info => info.classList.remove("active"));
+        const targerInfo = document.querySelector(`.info[data-index="${index}"]`);
+        if(targerInfo){
+            targerInfo.classList.add("active");
+            gsap.fromto(
+                targerInfo,
+                { opacity: 0, y: 40 },
+                { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }
+            );
+            const innerElements = targerInfo.querySelectorAll("h2, p, ul, li");
+            gsap.fromTo(
+                innerElements,
+                {
+                    opacity: 0,
+                    y: 30,
+                    clipPath: "inset(0 0 100% 0)"
+                },
+                {
+                    opacity: 1,
+                    y: 0,
+                    clipPath: "inset(0 0 0% 0)",
+                    duration: 0.6,
+                    ease: "power2.out",
+                    stagger: .1,
+                    delay: .15
+                }
+            )
+        }
+    })
+})
