@@ -26,6 +26,241 @@
             </ul>
         </nav>
 
+        <!-- SECTIONS -->
+        <section class="hero black section" id="clip1">
+            <div class="clip_inner">
+                <div class="hero_text">
+                    <h1>Style That Speaks</h1>
+                    <p>
+                        Inspired by timeless elegance and bold silhouettes, Étoile Studio redefines modern luxury. 
+                        Each piece is designed to reflect individuality and artistic expression.
+                        This digital experience embraces animation as couture — fluid, bespoke, and unforgettable.
+                    </p>
+                    <div class="button_wrap">
+                        <button><span>Explore Collection </span></button>
+                    </div>
+                </div>
+                <div class="bento">
+                    <div class="img_box img1" style="background-image: url(images/denim_jacket.png);"></div>
+                    <div class="img_box img2" style="background-image: url(images/Drape\ Dress.png);"></div>
+                    <div class="large_image" id="largeImage"></div>
+                    <div class="bottom_row">
+                        <div class="img_box img3" style="background-image: url(images/knit_sweater.png);"></div>
+                        <div class="img_box img4" style="background-image: url(images/trousers.png);"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURED COLLECTION -->
+        <section class="clip_scroll flex_col color section" id="clip1_scroll">
+            <div class="featured_collections">
+                <div class="collection_container">
+                    <div class="thumbnail_list">
+                        <img src="images/denim_jacket.png" alt="" class="thumb active" data-index="0">
+                        <img src="images/trench_coat.png" alt="" class="thumb" data-index="1">
+                        <img src="images/knit_sweater.png" alt="" class="thumb" data-index="2">
+                        <img src="images/trousers.png" alt="" class="thumb" data-index="3">
+                        <img src="images/Drape Dress.png" alt="" class="thumb" data-index="4">
+                        <img src="images/Layered Mesh Top.png" alt="" class="thumb" data-index="5">
+                    </div>
+                    <div class="image_display">
+                        <img src="images/denim_jacket.png" alt="" id="mainImage">
+                        <div class="image_slice"></div>
+                    </div>
+                    <div class="info_panel">
+                        <!-- 1. urban denim jacket -->
+                        <div class="info active" data-index="0">
+                            <h2>Urban Denim Jacket</h2>
+                            <p>Crafted for city streets with premium washed denim and reinforced stitching.</p>
+                            <ul>
+                                <li><strong>Price: </strong>$129</li>
+                                <li><strong>Material: </strong>100% Cotton Denim</li>
+                            </ul>
+                            <div class="product_option">
+                                <label for="size-0"><strong>Size:</strong></label>
+                                <select name="size" id="size-0">
+                                    <option value="">Select Size</option>
+                                    <option>S</option>
+                                    <option>M</option>
+                                    <option>L</option>
+                                    <option>XL</option>
+                                </select>
+                            </div>
+                            <div class="product_option">
+                                <label><strong>Color:</strong></label>
+                                <div class="color_swatches">
+                                    <span class="swatch" style='background-color: #1c1c1c;'></span>
+                                    <span class="swatch" style='background-color: #3a5f7d;'></span>
+                                    <span class="swatch" style='background-color: #c2b280;'></span>
+                                </div>
+                            </div>
+                            <div class="button_wrap">
+                                <button class="darkbtn"><span>Shop Now</span></button>
+                                <button class="darkbtn secondary"><span>Add to Cart</span></button>
+                            </div>
+                        </div>
+                        <!-- 2. Minimalistic trench coat -->
+                        <div class="info" data-index="1">
+                            <h2>Minimalist Trench Coat</h2>
+                            <p>Streamlined silhouette with a soft inner lining perfect for transitional weather.</p>
+                            <ul>
+                                <li><strong>Price: </strong>$179</li>
+                                <li><strong>Material: </strong>Cotton-Blend Twill</li>
+                            </ul>
+                            <div class="product_option">
+                                <label for="size-1"><strong>Size:</strong></label>
+                                <select name="size" id="size-1">
+                                    <option value="">Select Size</option>
+                                    <option>XS</option>
+                                    <option>S</option>
+                                    <option>M</option>
+                                    <option>L</option>
+                                </select>
+                            </div>
+                            <div class="product_option">
+                                <label><strong>Color:</strong></label>
+                                <div class="color_swatches">
+                                    <span class="swatch" style='background-color: #bfa06f;'></span>
+                                    <span class="swatch" style='background-color: #4b4b4b;'></span>
+                                    <span class="swatch" style='background-color: #dcdcdc;'></span>
+                                </div>
+                            </div>
+                            <div class="button_wrap">
+                                <button class="darkbtn"><span>Shop Now</span></button>
+                                <button class="darkbtn secondary"><span>Add to Cart</span></button>
+                            </div>
+                        </div>
+                        <!-- 3. Cropped Knit Sweater -->
+                        <div class="info" data-index="2">
+                            <h2>Cropped Knit Sweater</h2>
+                            <p>Warmth meets style in this relaxed-fit cropped sweater with ribbed cuffs.</p>
+                            <ul>
+                                <li><strong>Price: </strong>$89</li>
+                                <li><strong>Material: </strong>Merino Wool</li>
+                            </ul>
+                            <div class="product_option">
+                                <label for="size-2"><strong>Size:</strong></label>
+                                <select name="size" id="size-2">
+                                    <option value="">Select Size</option>
+                                    <option>XS</option>
+                                    <option>S</option>
+                                    <option>M</option>
+                                    <option>L</option>
+                                </select>
+                            </div>
+                            <div class="product_option">
+                                <label><strong>Color:</strong></label>
+                                <div class="color_swatches">
+                                    <span class="swatch" style='background-color: #d4a373;'></span>
+                                    <span class="swatch" style='background-color: #e2d2c0;'></span>
+                                    <span class="swatch" style='background-color: #7c8b9a;'></span>
+                                </div>
+                            </div>
+                            <div class="button_wrap">
+                                <button class="darkbtn"><span>Shop Now</span></button>
+                                <button class="darkbtn secondary"><span>Add to Cart</span></button>
+                            </div>
+                        </div>
+                        <!-- 4. Wide-Leg Tailored Trousers -->
+                        <div class="info" data-index="3">
+                            <h2>Wide-Leg Tailored Trousers</h2>
+                            <p>Soft-structured pants designed for elegance and everyday movement.</p>
+                            <ul>
+                                <li><strong>Price: </strong>$99</li>
+                                <li><strong>Material: </strong>Polyester-Viscose Blend</li>
+                            </ul>
+                            <div class="product_option">
+                                <label for="size-3"><strong>Size:</strong></label>
+                                <select name="size" id="size-3">
+                                    <option value="">Select Size</option>
+                                    <option>S</option>
+                                    <option>M</option>
+                                    <option>L</option>
+                                    <option>XL</option>
+                                    <option>XXL</option>
+                                </select>
+                            </div>
+                            <div class="product_option">
+                                <label><strong>Color:</strong></label>
+                                <div class="color_swatches">
+                                    <span class="swatch" style='background-color: #2f2f2f;'></span>
+                                    <span class="swatch" style='background-color: #9a9a9a;'></span>
+                                    <span class="swatch" style='background-color: #dcd0c0;'></span>
+                                </div>
+                            </div>
+                            <div class="button_wrap">
+                                <button class="darkbtn"><span>Shop Now</span></button>
+                                <button class="darkbtn secondary"><span>Add to Cart</span></button>
+                            </div>
+                        </div>
+                        <!-- 5. Asymmetric Drape Dress -->
+                        <div class="info" data-index="4">
+                            <h2>Asymmetric Drape Dress</h2>
+                            <p>A striking asymmetrical silhouette crafted to turn heads at every event.</p>
+                            <ul>
+                                <li><strong>Price: </strong>$159</li>
+                                <li><strong>Material: </strong>Satin & Crepe</li>
+                            </ul>
+                            <div class="product_option">
+                                <label for="size-4"><strong>Size:</strong></label>
+                                <select name="size" id="size-4">
+                                    <option value="">Select Size</option>
+                                    <option>XS</option>
+                                    <option>S</option>
+                                    <option>M</option>
+                                    <option>L</option>
+                                </select>
+                            </div>
+                            <div class="product_option">
+                                <label><strong>Color:</strong></label>
+                                <div class="color_swatches">
+                                    <span class="swatch" style='background-color: #c2185b;'></span>
+                                    <span class="swatch" style='background-color: #1c1c1c;'></span>
+                                    <span class="swatch" style='background-color: #f2dede;'></span>
+                                </div>
+                            </div>
+                            <div class="button_wrap">
+                                <button class="darkbtn"><span>Shop Now</span></button>
+                                <button class="darkbtn secondary"><span>Add to Cart</span></button>
+                            </div>
+                        </div>
+                        <!-- 6. Layered Mesh Top -->
+                        <div class="info" data-index="5">
+                            <h2>Layered Mesh Top</h2>
+                            <p>Breathable mesh fabric with layered styling for a modern streetwear look.</p>
+                            <ul>
+                                <li><strong>Price: </strong>$69</li>
+                                <li><strong>Material: </strong> Nylon Mesh</li>
+                            </ul>
+                            <div class="product_option">
+                                <label for="size-5"><strong>Size:</strong></label>
+                                <select name="size" id="size-5">
+                                    <option value="">Select Size</option>
+                                    <option>S</option>
+                                    <option>M</option>
+                                    <option>L</option>
+                                </select>
+                            </div>
+                            <div class="product_option">
+                                <label><strong>Color:</strong></label>
+                                <div class="color_swatches">
+                                    <span class="swatch" style='background-color: #ffffff;'></span>
+                                    <span class="swatch" style='background-color: #1c1c1c;'></span>
+                                    <span class="swatch" style='background-color: #9c27b0;'></span>
+                                </div>
+                            </div>
+                            <div class="button_wrap">
+                                <button class="darkbtn"><span>Shop Now</span></button>
+                                <button class="darkbtn secondary"><span>Add to Cart</span></button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- STAR TRANSITION -->
         <figure class="starSvg" id="svg1">
             <svg height="0" width="0">
