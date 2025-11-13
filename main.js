@@ -205,3 +205,78 @@ thumbs.forEach((thumb, index) => {
         }
     })
 })
+
+// TESTIMONIALS SECTION
+const testimonials = [
+    {
+        img: "images/trench_coat.png",
+        name: "JON SNOW",
+        text: "Finally, a brand that understands modern elegance! The quality is amazing & I always get compliments when I wear my Étoile."
+    },
+    {
+        img: "images/denim_jacket.png",
+        name: "ARYA STARK",
+        text: "This scarf is my new favorite accessory. Soft, stylish, and it turns heads everywhere I go."
+    },
+    {
+        img: "images/knit_sweater.png",
+        name: "SANSA STARK",
+        text: "The craftsmanship is incredible. You can tell every detail was made with care."
+    }
+];
+let currentIndex = 0;
+function showTestimonial(index){
+    const t = testimonials[index];
+    gsap.to("#testimonial_img", {opacity: 0, duration: 0.4, onComplete: () => {
+        document.getElementById("testimonial_img").src = t.img;
+        document.getElementById("testimonial_name").textContent = t.name;
+        gsap.to("#testimonial_img", {opacity: 1, duration: 0.4});
+    }});
+    gsap.to("#testimonial_text", {opacity: 0, y: 20, duration: 0.4, onComplete: () => {
+        document.getElementById("testimonial_text").textContent = t.text;
+        gsap.to("#testimonial_text", {opacity: 1, y: 0, duration: 0.4});
+    }});
+}
+setInterval(() => {
+    currentIndex = (currentIndex + 1) % testimonials.length;
+    showTestimonial(currentIndex);
+}, 5000);
+showTestimonial(currentIndex);
+
+// ABOUT SECTION
+gsap.from(".about_image_mask", {
+    scrollTrigger: {
+        trigger: ".about_story",
+        start: "top 80%",
+        toggleActions: "play none none reverse"
+    },
+    clipPath: "inset(0% 100% 0% 0%)",
+    ease: "power2.out",
+    duration: 1.5,
+    delay: 1
+});
+
+gsap.to(".about_image_mask img", {
+    scrollTrigger: {
+        trigger: ".about_story",
+        start: "top 80%",
+        toggleActions: "play none none reverse"
+    },
+    scale: 1,
+    ease: "power2.out",
+    duration: 1.5,
+    delay: 2
+});
+gsap.from(".about_content > *", {
+    scrollTrigger: {
+        trigger: ".about_story",
+        start: "top 80%",
+        toggleActions: "play none none reverse"
+    },
+    y: 30,
+    opacity: 0,
+    stagger: 0.15,
+    ease: "power2.out",
+    duration: 1,
+    delay: 2
+});
